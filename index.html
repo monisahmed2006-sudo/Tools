@@ -169,6 +169,22 @@
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
         }
 
         .category-card:hover {
@@ -176,15 +192,45 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
 
+        .category-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .category-card a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            z-index: 1;
+        }
+
         .category-icon {
             font-size: 50px;
             margin-bottom: 20px;
             color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        .category-card:hover .category-icon {
+            color: var(--accent);
+            transform: scale(1.1);
         }
 
         .category-card h3 {
             margin-bottom: 15px;
             color: var(--dark);
+            transition: all 0.3s;
+        }
+
+        .category-card:hover h3 {
+            color: var(--primary);
+        }
+
+        .category-card p {
+            color: var(--gray);
+            transition: all 0.3s;
         }
 
         /* Tools Section */
@@ -221,6 +267,7 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s;
+            position: relative;
         }
 
         .tool-card:hover {
@@ -588,16 +635,15 @@
                 <button class="btn btn-outline btn-large">Discover PDF Tools</button>
             </div>
             
-<div class="tool-categories">
-  <a href="/tool/image-compress.html" class="category-card">
-    <div class="category-icon">
-      <i class="fas fa-compress-alt"></i>
-    </div>
-    <h3>Compression</h3>
-    <p>Reduce file size without losing quality</p>
-  </a>
-</div>
-
+            <div class="tool-categories">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-compress-alt"></i>
+                    </div>
+                    <h3>Compression</h3>
+                    <p>Reduce file size without losing quality</p>
+                    <a href="#compression-tools"></a>
+                </div>
                 
                 <div class="category-card">
                     <div class="category-icon">
@@ -605,6 +651,7 @@
                     </div>
                     <h3>Conversion</h3>
                     <p>Convert between different formats</p>
+                    <a href="#conversion-tools"></a>
                 </div>
                 
                 <div class="category-card">
@@ -613,6 +660,7 @@
                     </div>
                     <h3>Editing</h3>
                     <p>Edit and enhance your files</p>
+                    <a href="#editing-tools"></a>
                 </div>
                 
                 <div class="category-card">
@@ -621,17 +669,18 @@
                     </div>
                     <h3>Security</h3>
                     <p>Protect your sensitive documents</p>
+                    <a href="#security-tools"></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Image Tools Section -->
-    <section class="tools-section">
+    <section class="tools-section" id="compression-tools">
         <div class="container">
             <div class="section-header">
-                <h2>Popular Image Tools</h2>
-                <p>Powerful tools to optimize, convert, and enhance your images</p>
+                <h2>Compression Tools</h2>
+                <p>Reduce file sizes while maintaining quality</p>
             </div>
             
             <div class="tools-grid">
@@ -648,22 +697,22 @@
                 
                 <div class="tool-card">
                     <div class="tool-image">
-                        <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="Image Converter">
+                        <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="PDF Compression">
                     </div>
                     <div class="tool-content">
-                        <h3>Image Converter</h3>
-                        <p>Convert between JPG, PNG, WEBP, and other formats</p>
+                        <h3>PDF Compressor</h3>
+                        <p>Reduce PDF file size while maintaining quality</p>
                         <a href="#" class="tool-link">Use Tool <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
                 <div class="tool-card">
                     <div class="tool-image">
-                        <img src="https://images.unsplash.com/photo-1566275529824-cca6d008f3da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Image Resizer">
+                        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Video Compression">
                     </div>
                     <div class="tool-content">
-                        <h3>Image Resizer</h3>
-                        <p>Resize your images to any dimension without losing quality</p>
+                        <h3>Video Compressor</h3>
+                        <p>Compress videos for faster sharing and streaming</p>
                         <a href="#" class="tool-link">Use Tool <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -671,22 +720,22 @@
         </div>
     </section>
 
-    <!-- PDF Tools Section -->
-    <section class="tools-section" style="background-color: #f1f5f9;">
+    <!-- Conversion Tools Section -->
+    <section class="tools-section" style="background-color: #f1f5f9;" id="conversion-tools">
         <div class="container">
             <div class="section-header">
-                <h2>Essential PDF Tools</h2>
-                <p>Edit, convert, and manipulate PDF documents with ease</p>
+                <h2>Conversion Tools</h2>
+                <p>Convert between different file formats with ease</p>
             </div>
             
             <div class="tools-grid">
                 <div class="tool-card">
                     <div class="tool-image">
-                        <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="PDF Compressor">
+                        <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="Image Converter">
                     </div>
                     <div class="tool-content">
-                        <h3>PDF Compressor</h3>
-                        <p>Reduce PDF file size while maintaining quality</p>
+                        <h3>Image Converter</h3>
+                        <p>Convert between JPG, PNG, WEBP, and other formats</p>
                         <a href="#" class="tool-link">Use Tool <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -704,11 +753,11 @@
                 
                 <div class="tool-card">
                     <div class="tool-image">
-                        <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="PDF Merger">
+                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80" alt="Document Converter">
                     </div>
                     <div class="tool-content">
-                        <h3>PDF Merger</h3>
-                        <p>Combine multiple PDF files into a single document</p>
+                        <h3>Document Converter</h3>
+                        <p>Convert between various document formats</p>
                         <a href="#" class="tool-link">Use Tool <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -902,6 +951,22 @@
             if (!nav.contains(event.target) && event.target !== menuBtn) {
                 nav.classList.remove('active');
             }
+        });
+
+        // Smooth scrolling for category links
+        document.querySelectorAll('.category-card a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>
